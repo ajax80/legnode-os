@@ -40,6 +40,24 @@ cp openbox/autostart "$OBOX_DIR/autostart"
 chmod +x "$OBOX_DIR/autostart"
 chown -R ajax80:ajax80 /home/ajax80/.config
 
+# X11 wrapper — allow non-console start
+mkdir -p /etc/X11
+printf "allowed_users = anybody\nneeds_root_rights = yes\n" > /etc/X11/Xwrapper.config
+
+# PyXDG for openbox autostart
+pip3 install pyxdg --break-system-packages
+
+# openbox autostart
+OBOX_DIR=/home/ajax80/.config/openbox
+mkdir -p "$OBOX_DIR"
+cp openbox/autostart "$OBOX_DIR/autostart"
+chmod +x "$OBOX_DIR/autostart"
+
+# xinitrc
+cp xinitrc /home/ajax80/.xinitrc
+chmod +x /home/ajax80/.xinitrc
+chown -R ajax80:ajax80 /home/ajax80/.config /home/ajax80/.xinitrc
+
 echo ""
 echo "legnode ready. reboot and mishmaath starts at boot."
 echo "dashboard: http://localhost:8765"
