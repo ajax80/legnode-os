@@ -1,0 +1,4 @@
+#!/bin/sh
+# legnode openbox autostart
+# schema is already running as a service — just open the window into it
+netsurf http://localhost:8765 &

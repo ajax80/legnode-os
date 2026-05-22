@@ -1,0 +1,13 @@
+#!/sbin/openrc-run
+
+name="mishmaath"
+description="mishmaath schema runtime"
+command="/bin/sh"
+command_args="-c 'pulseaudio --start --exit-idle-time=-1 && python3 /opt/mishmaath/web_dashboard.py'"
+command_background="yes"
+pidfile="/run/mishmaath.pid"
+command_user="ajax80"
+
+depend() {
+    after net udev
+}
