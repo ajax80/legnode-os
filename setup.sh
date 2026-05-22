@@ -16,7 +16,7 @@ apk add sudo python3 py3-pip py3-numpy git dbus alsa-utils \
     py3-fastapi py3-rich py3-aiofiles gcc python3-dev musl-dev
 
 # uvicorn via pip (not in apk)
-pip3 install uvicorn --break-system-packages
+pip3 install uvicorn websockets --break-system-packages
 
 # udev at boot
 rc-update add udev sysinit
